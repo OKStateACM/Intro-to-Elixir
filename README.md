@@ -8,7 +8,7 @@ Elixir leverages the Erlang VM, known for running low-latency, distributed and f
 ## Pattern Matching
 Pattern matching is a powerful part of Elixir. It allows us to match simple values, data structures, and even functions. In Elixir, the = operator is actually a match operator, comparable to the equals sign in algebra. Writing it turns the whole expression into an equation and makes Elixir match the values on the left hand with the values on the right hand. If the match succeeds, it returns the value of the equation. Otherwise, it throws an error. 
 
-```
+```elixir
 iex> list = [1, 2, 3]
 iex> [1, 2, 3] = list
 [1, 2, 3]
@@ -27,20 +27,20 @@ iex> {:ok, value} = {:error}
 A GenServer is a process like any other Elixir process and it can be used to keep state, execute code asynchronously and so on. The advantage of using a generic server process (GenServer) implemented using this module is that it will have a standard set of interface functions and include functionality for tracing and error reporting. It will also fit into a supervision tree.
 
 ### GenServer Callbacks
-```
+```elixir
 def handle_call(:view, _from, state) do
   {:reply, returned_value, new_state}
 end
 ```
 
-```
+```elixir
 def handle_cast({:push, element}, state) do
   {:noreply, [element | state]}
 end
 ```
 ### Basic GenServer Example
 
-```
+```elixir
 defmodule Stack do
   use GenServer
 
